@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cow Health Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://example.com/cow-background.jpg'); /* Replace with your cow image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        #monitoring {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .column {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 20%;
+        }
+
+        .column h3 {
+            margin-top: 0;
+        }
+
+        #data-table {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        #cowPhoto {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            display: block;
+            margin: 20px auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cow Health Monitoring Dashboard</h1>
+    </header>
+
+    <!-- Add cow image -->
+    <section id="cow-image">
+        <img src="https://example.com/cow-picture.jpg" alt="Cow Picture" id="cowPhoto"> <!-- Replace with your cow image URL -->
+    </section>
+
+    <!-- Main content with 4 columns and custom table -->
+    <section id="monitoring">
+        <div class="column">
+            <h3>Temperature</h3>
+            <p id="temperature">38.5 °C</p>
+            <input type="text" id="tempInput" placeholder="Update Temperature">
+            <button onclick="updateTemperature()">Update</button>
+        </div>
+        <div class="column">
+            <h3>Heart Rate</h3>
+            <p id="heartRate">70 BPM</p>
+            <input type="text" id="hrInput" placeholder="Update Heart Rate">
+            <button onclick="updateHeartRate()">Update</button>
+        </div>
+        <div class="column">
+            <h3>Activity</h3>
+            <p id="activity">Active</p>
+            <input type="text" id="activityInput" placeholder="Update Activity">
+            <button onclick="updateActivity()">Update</button>
+        </div>
+        <div class="column">
+            <h3>Milk Production</h3>
+            <p id="milkProduction">20 liters/day</p>
+            <input type="text" id="milkInput" placeholder="Update Milk Production">
+            <button onclick="updateMilkProduction()">Update</button>
+        </div>
+    </section>
+
+    <!-- Custom Table for Historical Data -->
+    <section id="data-table">
+        <h2>Historical Data</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Temperature (°C)</th>
+                <th>Heart Rate (BPM)</th>
+                <th>Activity</th>
+                <th>Milk Production (liters)</th>
+            </tr>
+            <tr>
+                <td>2024-10-01</td>
+                <td>38.7</td>
+                <td>72</td>
+                <td>Active</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>2024-10-02</td>
+                <td>38.5</td>
+                <td>68</td>
+                <td>Moderate</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>2024-10-03</td>
+                <td>39.1</td>
+                <td>75</td>
+                <td>Low</td>
+                <td>19</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Cow Health Monitoring System</p>
+    </footer>
+
+    <script>
+        function updateTemperature() {
+            var newTemp = document.getElementById('tempInput').value;
+            if (newTemp) {
+                document.getElementById('temperature').innerText = newTemp + " °C";
+                document.getElementById('tempInput').value = '';
+            }
+        }
+
+        function updateHeartRate() {
+            var newHR = document.getElementById('hrInput').value;
+            if (newHR) {
+                document.getElementById('heartRate').innerText = newHR + " BPM";
+                document.getElementById('hrInput').value = '';
+            }
+        }
+
+        function updateActivity() {
+            var newActivity = document.getElementById('activityInput').value;
+            if (newActivity) {
+                document.getElementById('activity').innerText = newActivity;
+                document.getElementById('activityInput').value = '';
+            }
+        }
+
+        function updateMilkProduction() {
+            var newMilk = document.getElementById('milkInput').value;
+            if (newMilk) {
+                document.getElementById('milkProduction').innerText = newMilk + " liters/day";
+                document.getElementById('milkInput').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
